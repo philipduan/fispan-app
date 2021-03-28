@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { message, Switch } from "antd";
+import { Layout, message, Space, Switch, Typography } from "antd";
 import {
   getLatestRate,
   getPastThirtyDaysRate,
@@ -7,6 +7,9 @@ import {
 } from "./utils/utilities";
 import "./App.scss";
 import "antd/dist/antd.css";
+
+const { Header, Footer, Content } = Layout;
+const { Title, Paragraph } = Typography;
 
 const App = () => {
   const [rate, setRate] = useState<number>(0);
@@ -45,17 +48,33 @@ const App = () => {
 
   return (
     <div className="App">
-      <p>1 CAD is {rate} to USD</p>
-      <p>The rate median of CAD to USD for the last 30 days is {rateMedian}</p>
-      <Switch
-        defaultChecked={isBuy}
-        checkedChildren="Buy"
-        unCheckedChildren="Sell"
-        onChange={buySellToggleChange}
-      />
-      <p>
-        It's {goodOrNot()} to {isBuy ? "buy" : "sell"}
-      </p>
+      <Layout>
+        <Header>
+          <Title style={{ color: "#FFFFFF", textAlign: "center" }}>
+            Currency Conversion App
+          </Title>
+        </Header>
+        <Content
+          style={{ padding: 10, display: "flex", justifyContent: "center" }}
+        >
+          <Space direction="vertical" align="center">
+            <Paragraph>1 CAD is {rate} USD</Paragraph>
+            <Paragraph>
+              The rate median of CAD to USD for the last 30 days is {rateMedian}
+            </Paragraph>
+            <Switch
+              defaultChecked={isBuy}
+              checkedChildren="Buy"
+              unCheckedChildren="Sell"
+              onChange={buySellToggleChange}
+              style={{ marginBottom: 10 }}
+            />
+            <Paragraph>
+              It's {goodOrNot()} to {isBuy ? "buy" : "sell"}
+            </Paragraph>
+          </Space>
+        </Content>
+      </Layout>
     </div>
   );
 };
