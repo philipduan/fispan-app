@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Layout, message, Select, Space, Switch, Typography } from "antd";
+import { Layout, message, Space, Switch, Typography } from "antd";
 import {
   getCurrencies,
   getLatestRate,
@@ -7,12 +7,12 @@ import {
   getMedianFromTimeSeries,
 } from "./utils/utilities";
 import SimpleScatterChart, { ChartData } from "./components/SimpleScatterChart";
+import CurrencySelect from "./components/CurrencySelect";
 import "antd/dist/antd.css";
 import "./App.scss";
 
 const { Header, Content } = Layout;
 const { Title, Paragraph } = Typography;
-const { Option } = Select;
 
 const App = () => {
   const [currencyList, setCurrencyList] = useState<string[]>([]);
@@ -66,7 +66,9 @@ const App = () => {
   };
 
   const goodOrNot = () => {
-    if (rate < rateMedian) {
+    if (rate === rateMedian) {
+      return "not good";
+    } else if (rate < rateMedian) {
       return isBuy ? "good" : "not good";
     } else {
       return isBuy ? "not good" : "good";
@@ -87,33 +89,17 @@ const App = () => {
           <Space direction="vertical" align="center">
             <Paragraph>
               1
-              <Select
-                style={{ margin: 10 }}
-                defaultValue={fromCurrency}
-                onChange={(value) => {
-                  setFromCurrency(value);
-                }}
-              >
-                {currencyList.map((currency, index) => (
-                  <Option key={`${index}_${currency}`} value={currency}>
-                    {currency}
-                  </Option>
-                ))}
-              </Select>
+              <CurrencySelect
+                selectedCurrency={fromCurrency}
+                currencies={currencyList}
+                setCurrency={setFromCurrency}
+              />
               is {rate}
-              <Select
-                style={{ margin: 10 }}
-                defaultValue={toCurrency}
-                onChange={(value) => {
-                  setToCurrency(value);
-                }}
-              >
-                {currencyList.map((currency, index) => (
-                  <Option key={`${currency}_${index}`} value={currency}>
-                    {currency}
-                  </Option>
-                ))}
-              </Select>
+              <CurrencySelect
+                selectedCurrency={toCurrency}
+                currencies={currencyList}
+                setCurrency={setToCurrency}
+              />
             </Paragraph>
             <Paragraph>
               The rate median of {fromCurrency} to {toCurrency} for the last 30
