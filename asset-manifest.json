@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/fispan-app/static/css/main.bab0b925.chunk.css",
+    "main.js": "/fispan-app/static/js/main.0cf28ecc.chunk.js",
+    "main.js.map": "/fispan-app/static/js/main.0cf28ecc.chunk.js.map",
+    "runtime-main.js": "/fispan-app/static/js/runtime-main.44f16241.js",
+    "runtime-main.js.map": "/fispan-app/static/js/runtime-main.44f16241.js.map",
+    "static/css/2.899d3621.chunk.css": "/fispan-app/static/css/2.899d3621.chunk.css",
+    "static/js/2.8fdeb66f.chunk.js": "/fispan-app/static/js/2.8fdeb66f.chunk.js",
+    "static/js/2.8fdeb66f.chunk.js.map": "/fispan-app/static/js/2.8fdeb66f.chunk.js.map",
+    "static/js/3.25cb8255.chunk.js": "/fispan-app/static/js/3.25cb8255.chunk.js",
+    "static/js/3.25cb8255.chunk.js.map": "/fispan-app/static/js/3.25cb8255.chunk.js.map",
+    "index.html": "/fispan-app/index.html",
+    "static/css/2.899d3621.chunk.css.map": "/fispan-app/static/css/2.899d3621.chunk.css.map",
+    "static/css/main.bab0b925.chunk.css.map": "/fispan-app/static/css/main.bab0b925.chunk.css.map",
+    "static/js/2.8fdeb66f.chunk.js.LICENSE.txt": "/fispan-app/static/js/2.8fdeb66f.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.44f16241.js",
+    "static/css/2.899d3621.chunk.css",
+    "static/js/2.8fdeb66f.chunk.js",
+    "static/css/main.bab0b925.chunk.css",
+    "static/js/main.0cf28ecc.chunk.js"
+  ]
+}
